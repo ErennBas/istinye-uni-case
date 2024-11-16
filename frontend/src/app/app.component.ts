@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { AnnouncementService } from '@services/announcement.service';
 import { LanguageService } from '@services/language.service';
 import { ILanguage } from '@models/language.model';
 import { IAnnouncement } from '@models/announcement.model';
+import { MatDrawerContainer } from '@angular/material/sidenav';
 
 
 @Component({
@@ -12,10 +13,15 @@ import { IAnnouncement } from '@models/announcement.model';
 	styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
+	@ViewChild(MatDrawerContainer) sidenavContainer!: MatDrawerContainer;
+
 	languages: ILanguage[] = [];
 	announcements: IAnnouncement[] = [];
+	selectedAnnouncement?: IAnnouncement;
 	title = 'frontend';
 	showFiller = false;
+
+	isSidebarOpen: boolean = false;
 
 	constructor(private announcementService: AnnouncementService, private languageService: LanguageService) {
 
@@ -43,4 +49,11 @@ export class AppComponent implements OnInit {
 			console.error("Error loaing languages", err)
 		});
 	}
+
+	openEditSidebar(announcement: IAnnouncement) {
+		this.selectedAnnouncement = { ...announcement };
+		this.sidenavContainer.open();
+	}
+
+	deleteAnnouncement(id: string) { }
 }

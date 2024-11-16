@@ -2,7 +2,7 @@ export interface IAnnouncement {
 	id: string;
 	priority: number;
 	type: string;
-	pub1ishingDate: Date;
+	publishingDate: Date;
 	isActive: boolean;
 	translations: {
 		languageld: string;
