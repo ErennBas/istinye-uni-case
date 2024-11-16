@@ -25,7 +25,68 @@ let data = {
 			isoCode: 'de'
 		}
 	],
-	announcements: []
+	announcements: [
+		{
+			id: "string",
+			priority: 1,
+			type: "string",
+			publishingDate: new Date(),
+			isActive: true,
+			translations: {
+				languageld: "string",
+				content: "string",
+				redirectUrI: "string"
+			}
+		},
+		{
+			id: "string",
+			priority: 1,
+			type: "string",
+			publishingDate: new Date(),
+			isActive: true,
+			translations: {
+				languageld: "string",
+				content: "string",
+				redirectUrI: "string"
+			}
+		},
+		{
+			id: "string",
+			priority: 1,
+			type: "string",
+			publishingDate: new Date(),
+			isActive: true,
+			translations: {
+				languageld: "string",
+				content: "string",
+				redirectUrI: "string"
+			}
+		},
+		{
+			id: "string",
+			priority: 1,
+			type: "string",
+			publishingDate: new Date(),
+			isActive: true,
+			translations: {
+				languageld: "string",
+				content: "string",
+				redirectUrI: "string"
+			}
+		},
+		{
+			id: "string",
+			priority: 1,
+			type: "string",
+			publishingDate: new Date(),
+			isActive: true,
+			translations: {
+				languageld: "string",
+				content: "string",
+				redirectUrI: "string"
+			}
+		}
+	]
 };
 
 // languages
