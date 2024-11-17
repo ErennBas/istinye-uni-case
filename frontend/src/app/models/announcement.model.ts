@@ -4,9 +4,12 @@ export interface IAnnouncement {
 	type: string;
 	publishingDate: Date;
 	isActive: boolean;
-	translations: {
-		languageld: string;
-		content: string;
-		redirectUrI?: string;
-	}
+	// TODO any durumunu düzelt, olmaması gerekiyor.
+	translations: Translation[] | Record<string, any>[] | any;
+}
+
+export interface Translation {
+	languageld: string;
+	content: string;
+	redirectUrI?: string;
 }

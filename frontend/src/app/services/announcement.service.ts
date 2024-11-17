@@ -46,7 +46,7 @@ export class AnnouncementService {
 	 * @param announcement Updated Announcement Object
 	 * @returns Observable<IAnnouncement>
 	 */
-	update(id: string, announcement: IAnnouncement): Observable<IAnnouncement> {
+	update(id: string, announcement: Omit<IAnnouncement, 'id'>): Observable<IAnnouncement> {
 		return this.http.put<IAnnouncement>(`${this.apiUrl}/${id}`, announcement);
 	}
 

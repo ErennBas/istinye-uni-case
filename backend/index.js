@@ -23,71 +23,117 @@ let data = {
 			id: 'fa7921ef-6592-44f0-aea8-d7a9bc3803b2',
 			name: 'Deutsch',
 			isoCode: 'de'
-		}
+		},
+		{
+			id: 'ad1b621e-d9b2-4b57-9807-cd634ae80c4f',
+			name: 'Français',
+			isoCode: 'fr'
+		},
 	],
 	announcements: [
 		{
-			id: "string",
+			id: "1",
 			priority: 1,
-			type: "string",
+			type: "Maintenance",
 			publishingDate: new Date(),
 			isActive: true,
-			translations: {
-				languageld: "string",
-				content: "string",
-				redirectUrI: "string"
-			}
+			translations: [
+				{
+					languageld: "2bf97f90-d5ee-493b-9120-e49a276fec7a",
+					content: "Sistem bakımda olacak, lütfen bekleyiniz.",
+					redirectUrI: "https://example.com/maintenance"
+				},
+				{
+					languageld: "b599eec6-fe7a-489f-88b3-54cb74b231ed",
+					content: "The system will be under maintenance, please wait.",
+					redirectUrI: "https://example.com/maintenance"
+				}
+			]
 		},
 		{
-			id: "string",
-			priority: 1,
-			type: "string",
+			id: "2",
+			priority: 2,
+			type: "New Feature",
 			publishingDate: new Date(),
 			isActive: true,
-			translations: {
-				languageld: "string",
-				content: "string",
-				redirectUrI: "string"
-			}
+			translations: [
+				{
+					languageld: "b599eec6-fe7a-489f-88b3-54cb74b231ed",
+					content: "We have introduced a new feature! Check it out.",
+					redirectUrI: "https://example.com/new-feature"
+				},
+				{
+					languageld: "fa7921ef-6592-44f0-aea8-d7a9bc3803b2",
+					content: "Wir haben eine neue Funktion eingeführt! Schau es dir an.",
+					redirectUrI: "https://example.com/new-feature"
+				}
+			]
 		},
 		{
-			id: "string",
-			priority: 1,
-			type: "string",
+			id: "3",
+			priority: 3,
+			type: "Update",
 			publishingDate: new Date(),
-			isActive: true,
-			translations: {
-				languageld: "string",
-				content: "string",
-				redirectUrI: "string"
-			}
+			isActive: false,
+			translations: [
+				{
+					languageld: "fa7921ef-6592-44f0-aea8-d7a9bc3803b2",
+					content: "Es gibt ein neues Update für die App.",
+					redirectUrI: "https://example.com/update"
+				},
+				{
+					languageld: "ad1b621e-d9b2-4b57-9807-cd634ae80c4f",
+					content: "Il y a une nouvelle mise à jour pour l'application.",
+					redirectUrI: "https://example.com/update"
+				}
+			]
 		},
 		{
-			id: "string",
+			id: "4",
 			priority: 1,
-			type: "string",
+			type: "Security Alert",
 			publishingDate: new Date(),
 			isActive: true,
-			translations: {
-				languageld: "string",
-				content: "string",
-				redirectUrI: "string"
-			}
+			translations: [
+				{
+					languageld: "ad1b621e-d9b2-4b57-9807-cd634ae80c4f",
+					content: "Alerte de sécurité: Veuillez changer votre mot de passe.",
+					redirectUrI: "https://example.com/security"
+				},
+				{
+					languageld: "2bf97f90-d5ee-493b-9120-e49a276fec7a",
+					content: "Güvenlik uyarısı: Lütfen şifrenizi değiştirin.",
+					redirectUrI: "https://example.com/security"
+				}
+			]
 		},
 		{
-			id: "string",
-			priority: 1,
-			type: "string",
+			id: "5",
+			priority: 2,
+			type: "Holiday Notice",
 			publishingDate: new Date(),
 			isActive: true,
-			translations: {
-				languageld: "string",
-				content: "string",
-				redirectUrI: "string"
-			}
-		}
+			translations: [
+				{
+					languageld: "2bf97f90-d5ee-493b-9120-e49a276fec7a",
+					content: "Tatil duyurusu: Ofisimiz 1 hafta kapalı olacak.",
+					redirectUrI: "https://example.com/holiday"
+				},
+				{
+					languageld: "fa7921ef-6592-44f0-aea8-d7a9bc3803b2",
+					content: "Urlaubsankündigung: Unser Büro wird eine Woche geschlossen sein.",
+					redirectUrI: "https://example.com/holiday"
+				},
+				{
+					languageld: "b599eec6-fe7a-489f-88b3-54cb74b231ed",
+					content: "Holiday notice: Our office will be closed for 1 week.",
+					redirectUrI: "https://example.com/holiday"
+				}
+			]
+		},
 	]
 };
+
 
 // languages
 app.get('/languages', (req, res) => {

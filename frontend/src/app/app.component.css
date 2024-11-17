@@ -15,9 +15,33 @@ mat-icon {
 
 mat-drawer {
 	min-height: 600px;
+	width: 70%;
+	overflow: auto;
 }
 
 mat-drawer-container,
 mat-drawer {
 	background-color: rgb(243 244 246 / var(--tw-bg-opacity, 1));
+}
+
+.table-container {
+	max-height: 90%;
+	min-height: 80%;
+	overflow-y: auto;
+}
+
+table {
+	height: 100%;
+}
+
+.fab-button {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+}
+
+.tab-input {
+	min-height: 80px;
 }
