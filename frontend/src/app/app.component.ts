@@ -54,6 +54,7 @@ export class AppComponent {
 				const announcement: any = { ...this.announcement, ...this.announcementForm.value };
 				this.announcementService.create(announcement).subscribe(res => {
 					this.announcements.push(res);
+					this.onCancel();
 				}, err => {
 					console.error(err);
 				});
