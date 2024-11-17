@@ -32,7 +32,7 @@ let data = {
 	],
 	announcements: [
 		{
-			id: "1",
+			id: "2bf97f90-d5ee-493b-9120-e49a276fec7a",
 			priority: 1,
 			type: "Maintenance",
 			publishingDate: new Date(),
@@ -51,7 +51,7 @@ let data = {
 			]
 		},
 		{
-			id: "2",
+			id: "b599eec6-fe7a-489f-88b3-54cb74b231ed",
 			priority: 2,
 			type: "New Feature",
 			publishingDate: new Date(),
@@ -70,7 +70,7 @@ let data = {
 			]
 		},
 		{
-			id: "3",
+			id: "fa7921ef-6592-44f0-aea8-d7a9bc3803b2",
 			priority: 3,
 			type: "Update",
 			publishingDate: new Date(),
@@ -89,7 +89,7 @@ let data = {
 			]
 		},
 		{
-			id: "4",
+			id: "ad1b621e-d9b2-4b57-9807-cd634ae80c4f",
 			priority: 1,
 			type: "Security Alert",
 			publishingDate: new Date(),
@@ -108,7 +108,7 @@ let data = {
 			]
 		},
 		{
-			id: "5",
+			id: "2bf97f90-d5ee-493b-9120-e49a276fec7a",
 			priority: 2,
 			type: "Holiday Notice",
 			publishingDate: new Date(),

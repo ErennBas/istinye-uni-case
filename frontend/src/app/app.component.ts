@@ -51,8 +51,12 @@ export class AppComponent {
 				}
 			});
 			if (status) {
-				const announcement = { ...this.announcement, ...this.announcementForm.value };
-				console.log(announcement);
+				const announcement: any = { ...this.announcement, ...this.announcementForm.value };
+				this.announcementService.create(announcement).subscribe(res => {
+					this.announcements.push(res);
+				}, err => {
+					console.error(err);
+				});
 			}
 			else {
 				// TODO form error ekle

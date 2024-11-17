@@ -36,7 +36,7 @@ export class AnnouncementService {
 	 * @param announcement Announcement Object
 	 * @returns Observable<IAnnouncement>
 	 */
-	create(announcement: IAnnouncement): Observable<IAnnouncement> {
+	create(announcement: Omit<IAnnouncement, 'id'>): Observable<IAnnouncement> {
 		return this.http.post<IAnnouncement>(this.apiUrl, announcement);
 	}
 
