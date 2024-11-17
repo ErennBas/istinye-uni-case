@@ -1,11 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormArray, FormControl } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatDrawerContainer } from '@angular/material/sidenav';
 
 import { AnnouncementService } from '@services/announcement.service';
 import { LanguageService } from '@services/language.service';
 import { ILanguage } from '@models/language.model';
 import { IAnnouncement, Translation } from '@models/announcement.model';
+
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-root',
@@ -53,20 +55,31 @@ export class AppComponent {
 			if (status) {
 				const announcement: any = { ...this.announcement, ...this.announcementForm.value };
 				this.announcementService.create(announcement).subscribe(res => {
+					Swal.fire("Saved!", "", "success");
 					this.announcements.push(res);
 					this.onCancel();
 				}, err => {
-					console.error(err);
+					Swal.fire({
+						icon: "error",
+						title: "Oops...",
+						text: "Something went wrong!",
+					});
 				});
 			}
 			else {
-				// TODO form error ekle
-				alert("Content is required");
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Content is required",
+				});
 			}
 		}
 		else {
-			// TODO form error ekle
-			alert("Required fields cannot be left blank");
+			Swal.fire({
+				icon: "error",
+				title: "Oops...",
+				text: "Required fields cannot be left blank",
+			});
 		}
 	}
 
@@ -79,8 +92,11 @@ export class AppComponent {
 		this.announcementService.find().subscribe(res => {
 			this.announcements = res;
 		}, err => {
-			// TODO sweetalert gibi bir şey ekle
-			console.error("Error loaing languages", err)
+			Swal.fire({
+				icon: "error",
+				title: "Oops...",
+				text: "Error loaing announcements",
+			});
 		});
 	}
 
@@ -95,8 +111,11 @@ export class AppComponent {
 				});
 			});
 		}, err => {
-			// TODO sweetalert gibi bir şey ekle
-			console.error("Error loaing languages", err)
+			Swal.fire({
+				icon: "error",
+				title: "Oops...",
+				text: "Error loaing languages",
+			});
 		});
 	}
 
@@ -110,10 +129,20 @@ export class AppComponent {
 	}
 
 	deleteAnnouncement(announcement: IAnnouncement) {
-		// TODO Planlı yavaşlatma ekle
-		this.announcementService.delete(announcement.id).subscribe(res => {
-			this.announcements.splice(this.announcements.findIndex(a => a.id === announcement.id), 1);
+		Swal.fire({
+			title: "Do you want to delete this announcement?",
+			showDenyButton: true,
+			showCancelButton: true,
+			confirmButtonText: "Delete",
+		}).then((result) => {
+			if (result.isConfirmed) {
+				this.announcementService.delete(announcement.id).subscribe(res => {
+					this.announcements.splice(this.announcements.findIndex(a => a.id === announcement.id), 1);
+					Swal.fire("Saved!", "", "success");
+				});
+			}
 		});
+
 	}
 
 	getTranslationContent(langId: string): string {
@@ -154,10 +183,15 @@ export class AppComponent {
 
 	updateAnnouncement() {
 		this.announcementService.update(this.selectedAnnouncement!.id, this.selectedAnnouncement!).subscribe(res => {
+			Swal.fire("Saved!", "", "success");
 			this.getAnnouncements();
 			this.editSidebar.close();
 		}, err => {
-			console.error(err)
+			Swal.fire({
+				icon: "error",
+				title: "Oops...",
+				text: "Something went wrong!",
+			});
 		});
 	}
 }

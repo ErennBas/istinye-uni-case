@@ -26,7 +26,7 @@
 								</mat-form-field>
 
 								<mat-form-field class="w-full">
-									<mat-label>Status</mat-label>
+									<mat-label>Active</mat-label>
 									<mat-select [ngModel]="selectedAnnouncement?.isActive">
 										<mat-option [value]="true">Active</mat-option>
 										<mat-option [value]="false">Passive</mat-option>
@@ -91,9 +91,9 @@
 										</mat-select>
 									</mat-form-field>
 
-									<!-- Status -->
+									<!-- Active -->
 									<mat-form-field class="w-full">
-										<mat-label>Status</mat-label>
+										<mat-label>Active</mat-label>
 										<mat-select formControlName="isActive">
 											<mat-option [value]="true">Active</mat-option>
 											<mat-option [value]="false">Passive</mat-option>
@@ -143,7 +143,7 @@
 								<th class="py-3 px-4 text-center">Priority</th>
 								<th class="py-3 px-4 text-center">Type</th>
 								<th class="py-3 px-4 text-left">Publishing Date</th>
-								<th class="py-3 px-4 text-center">Status</th>
+								<th class="py-3 px-4 text-center">Active</th>
 								<th class="py-3 px-4 text-center">Actions</th>
 							</tr>
 						</thead>
